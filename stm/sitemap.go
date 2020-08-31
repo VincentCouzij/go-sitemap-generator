@@ -1,19 +1,7 @@
 package stm
 
-import (
-	"log"
-	"runtime"
-)
-
 // NewSitemap returns the created the Sitemap's pointer
-func NewSitemap(maxProc int) *Sitemap {
-	log.SetFlags(log.LstdFlags | log.Llongfile)
-	if maxProc < 1 || maxProc > runtime.NumCPU() {
-		maxProc = runtime.NumCPU()
-	}
-	log.Printf("Max processors %d\n", maxProc)
-	runtime.GOMAXPROCS(maxProc)
-
+func NewSitemap() *Sitemap {
 	sm := &Sitemap{
 		opts: NewOptions(),
 	}
